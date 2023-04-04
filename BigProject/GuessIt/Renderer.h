@@ -8,9 +8,9 @@ enum Image
 {
     Image_Default,
     Image_Victory,
-    Image_Victory2,
     Image_Lower,
     Image_Higher,
+    Image_WrongInput,
     Image_Total
 };
 SDL_Window *gWindow = NULL;
@@ -18,6 +18,12 @@ SDL_Window *gWindow = NULL;
 SDL_Renderer *gRenderer = NULL;
 
 SDL_Texture *gTexture[Image_Total];
+
+bool Init();
+bool loadMedia();
+void close();
+SDL_Texture *loadTexture( std::string path);
+
 bool Init()
 {
     bool success = true;
@@ -90,12 +96,6 @@ bool loadMedia()
         printf("Failed to load Image Victory\n");
         success = false;
     }
-    gTexture[Image_Victory2] = loadTexture("Image/Image_Victory2.png");
-    if (gTexture[Image_Victory2]==NULL)
-    {
-        printf("Failed to load Image Victory2\n");
-        success = false;
-    }
     gTexture[Image_Lower] = loadTexture("Image/Image_Lower.png");
     if (gTexture[Image_Lower]==NULL)
     {
@@ -106,6 +106,12 @@ bool loadMedia()
     if (gTexture[Image_Higher]==NULL)
     {
         printf("Failed to load Image Higher\n");
+        success = false;
+    }
+    gTexture[Image_WrongInput] = loadTexture("Image/Image_WrongInput.png");
+    if (gTexture[Image_WrongInput]==NULL)
+    {
+        printf("Failed to load Image WrongInput\n");
         success = false;
     }
     return success;

@@ -36,21 +36,22 @@ class object
     public:
     object();
     ~object();
-    void Show();
+    void Show(int i);
     void setRect(int x,int y) {rect_.x = x; rect_.y = y;};
     SDL_Rect getRect() const {return rect_;};
     bool loadIMG();
-    protected:
     enum Image_
-    {
-        Image_Default,
-        Image_Total
-    };
-    std :: string IMGpath_[Image_Total+1]=
-    {
-        "Image_Default",
-        "Object"
-    };
+        {
+            Image_Default,
+            Image_Total
+        };
+        std :: string IMGpath_[Image_Total+1]=
+        {
+            "Image_Default",
+            "Object"
+        };
+    protected:
+
     SDL_Rect rect_;
     SDL_Texture *Texture_ [Image_Total];
 };
@@ -60,33 +61,30 @@ class background : public object
     bool loadIMG()
     {
         std :: string path = IMGpath_[Image_Total];
-        bool success = true;
-        for (int i=0;i<Image_Total;i++)
-            {
-                std :: string pathImg = path + "\\" + IMGpath_[i];
-                Texture_[i] = loadTexture(pathImg);
-                if (Texture_[i] == NULL)
-                {
-                    printf ("Failed to load %s\n",pathImg.c_str());
-                success = false;
-                }
-            }
+    bool success = true;
+    for (int i=0;i<Image_Total;i++)
+    {
+        std :: string pathImg = path + "/" + IMGpath_[i] + ".png";
+        Texture_[i] = loadTexture(pathImg);
+        if (Texture_[i] == NULL)
+        {
+            printf ("Unable to load %s\n",pathImg.c_str());
+            success = false;
+        }
+    }
     return success;
     }
-    protected:
     enum Image_
     {
         Image_Default,
-        something,
-        moresomething,
         Image_Total
     };
+    protected:
+
     std :: string IMGpath_[Image_Total+1]=
     {
         "Image_Default",
-        "something",
-        "moresomething",
-        "Background"
+        "Image/Background"
     };
 } gBackground = background();
 class body : public object
@@ -95,33 +93,44 @@ class body : public object
     bool loadIMG()
     {
         std :: string path = IMGpath_[Image_Total];
-        bool success = true;
-        for (int i=0;i<Image_Total;i++)
-            {
-                std :: string pathImg = path + "\\" + IMGpath_[i];
-                Texture_[i] = loadTexture(pathImg);
-                if (Texture_[i] == NULL)
-                {
-                    printf ("Failed to load %s\n",pathImg.c_str());
-                success = false;
-                }
-            }
+    bool success = true;
+    for (int i=0;i<Image_Total;i++)
+    {
+        std :: string pathImg = path + "/" + IMGpath_[i] + ".png";
+        Texture_[i] = loadTexture(pathImg);
+        if (Texture_[i] == NULL)
+        {
+            printf ("Unable to load %s\n",pathImg.c_str());
+            success = false;
+        }
+    }
     return success;
     }
-    protected:
     enum Image_
     {
         Image_Default,
-        something,
-        moresomething,
+        Image_head,
+        Image_Neck,
+        Image_Body,
+        Image_Arm_left,
+        Image_Arm_right,
+        Image_Leg_left,
+        Image_leg_right,
         Image_Total
     };
+    protected:
+
     std :: string IMGpath_[Image_Total+1]=
     {
         "Image_Default",
-        "something",
-        "moresomething",
-        "Body"
+        "Image_head",
+        "Image_Neck",
+        "Image_Body",
+        "Image_Arm_left",
+        "Image_Arm_right",
+        "Image_Leg_left",
+        "Image_leg_right",
+        "Image/Body"
     };
 } gBody = body();
 class gallow : public object
@@ -133,30 +142,27 @@ class gallow : public object
         bool success = true;
         for (int i=0;i<Image_Total;i++)
             {
-                std :: string pathImg = path + "\\" + IMGpath_[i];
-                Texture_[i] = loadTexture(pathImg);
-                if (Texture_[i] == NULL)
-                {
-                    printf ("Failed to load %s\n",pathImg.c_str());
-                success = false;
-                }
+        std :: string pathImg = path + "/" + IMGpath_[i] + ".png";
+        Texture_[i] = loadTexture(pathImg);
+        if (Texture_[i] == NULL)
+        {
+            printf ("Unable to load %s\n",pathImg.c_str());
+            success = false;
+        }
             }
     return success;
     }
-    protected:
     enum Image_
     {
         Image_Default,
-        something,
-        moresomething,
         Image_Total
     };
+    protected:
+
     std :: string IMGpath_[Image_Total+1]=
     {
         "Image_Default",
-        "something",
-        "moresomething",
-        "Gallow"
+        "Image/Gallow"
     };
 } gGallow =gallow();
 object :: object()
@@ -185,21 +191,22 @@ bool object :: loadIMG()
     bool success = true;
     for (int i=0;i<Image_Total;i++)
     {
-        std :: string pathImg = path + "\\" + IMGpath_[i];
+        std :: string pathImg = path + "/" + IMGpath_[i] + ".png";
         Texture_[i] = loadTexture(pathImg);
         if (Texture_[i] == NULL)
         {
-            printf ("Failed to load %s\n",pathImg.c_str());
+            printf ("Unable to load %s\n",pathImg.c_str());
             success = false;
         }
     }
     return success;
 }
-void object :: Show(SDL_Texture *TheTexture)
+void object :: Show(int i)
 {
-    SDL_Rect rect = getRect();
+    SDL_Texture *TheTexture = Texture_[i];
+    //SDL_Rect rect = getRect();
     SDL_RenderClear( gRenderer );
-    SDL_RenderCopy( gRenderer, gTexture[ImageShown], NULL, NULL );
+    SDL_RenderCopy( gRenderer, TheTexture, NULL, NULL );
     SDL_RenderPresent(gRenderer);
 }
 bool Init()
@@ -258,7 +265,7 @@ bool loadMedia()
         printf("Unable to load Body\n");
         success = false;
     }
-    if (gGallow.loadIMG())
+    if (!gGallow.loadIMG())
     {
         printf ("Unable to load Gallow\n");
         success = false;

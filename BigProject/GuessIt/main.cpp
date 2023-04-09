@@ -3,6 +3,7 @@
 #include <Renderer.h>
 #include <windows.h>
 #include <iostream>
+#include <SDL_ttf.h>
 using namespace std;
 int ChooseNumber()
 {

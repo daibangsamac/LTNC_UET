@@ -57,6 +57,10 @@ bool Init()
                     printf("Failed to initialized SDL_image\n");
                     success = false;
                 }
+                else
+                {
+                    //Audio
+                }
             }
         }
     }

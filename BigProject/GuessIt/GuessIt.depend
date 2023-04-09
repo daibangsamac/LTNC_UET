@@ -1,12 +1,13 @@
 # depslib dependency file v1.0
-1680605907 source:d:\code\github\ltnc_uet\bigproject\guessit\main.cpp
+1680878262 source:d:\code\github\ltnc_uet\bigproject\guessit\main.cpp
 	<time.h>
 	<cstdlib>
 	<Renderer.h>
 	<windows.h>
 	<iostream>
+	<SDL_ttf.h>
 
-1680602595 d:\code\github\ltnc_uet\bigproject\guessit\renderer.h
+1680873587 d:\code\github\ltnc_uet\bigproject\guessit\renderer.h
 	<SDL_image.h>
 	<SDL.h>
 	<cstdio>
@@ -404,6 +405,11 @@
 
 1675723875 d:\code\github\ltnc_uet\bigproject\guessit\include\sdl2\sdl_misc.h
 	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1675732513 d:\code\github\ltnc_uet\bigproject\guessit\include\sdl2\sdl_ttf.h
+	"SDL.h"
 	"begin_code.h"
 	"close_code.h"
 

@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1681041967 source:d:\code\github\ltnc_uet\bigproject\streetchaos\main.cpp
+	"Common_SDL_Func.h"
+
+1681083110 source:d:\code\github\ltnc_uet\bigproject\streetchaos\common_sdl_func.cpp
+	<Common_SDL_Func.h>
+
+1681042192 d:\code\github\ltnc_uet\bigproject\streetchaos\common_sdl_func.h
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_mixer.h>
+	<SDL_ttf.h>
+	<string>
+
+1681045346 source:d:\code\github\ltnc_uet\bigproject\streetchaos\baseobject.cpp
+	<BaseObject.h>
+
+1681083413 d:\code\github\ltnc_uet\bigproject\streetchaos\baseobject.h
+	<Common_SDL_Func.h>
+
+1681083195 source:d:\code\github\ltnc_uet\bigproject\streetchaos\background.cpp
+	<Background.h>
+
+1681083004 d:\code\github\ltnc_uet\bigproject\streetchaos\background.h
+	<Common_SDL_Func.h>
+	<BaseObject.h>
+

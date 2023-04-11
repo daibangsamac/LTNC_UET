@@ -1,27 +1,56 @@
 # depslib dependency file v1.0
-1681041967 source:d:\code\github\ltnc_uet\bigproject\streetchaos\main.cpp
+1681228076 source:d:\code\github\ltnc_uet\bigproject\streetchaos\main.cpp
+	<Common_SDL_Function.h>
+	<iostream>
+	<Button.h>
+	<Background.h>
+	<Character.h>
+
+1681214639 source:d:\code\github\ltnc_uet\bigproject\streetchaos\common_sdl_func.cpp
 	"Common_SDL_Func.h"
 
-1681083110 source:d:\code\github\ltnc_uet\bigproject\streetchaos\common_sdl_func.cpp
-	<Common_SDL_Func.h>
-
-1681042192 d:\code\github\ltnc_uet\bigproject\streetchaos\common_sdl_func.h
+1681215024 d:\code\github\ltnc_uet\bigproject\streetchaos\common_sdl_func.h
 	<SDL.h>
 	<SDL_image.h>
 	<SDL_mixer.h>
 	<SDL_ttf.h>
 	<string>
 
-1681045346 source:d:\code\github\ltnc_uet\bigproject\streetchaos\baseobject.cpp
+1681226019 source:d:\code\github\ltnc_uet\bigproject\streetchaos\baseobject.cpp
 	<BaseObject.h>
 
-1681083413 d:\code\github\ltnc_uet\bigproject\streetchaos\baseobject.h
-	<Common_SDL_Func.h>
+1681225294 d:\code\github\ltnc_uet\bigproject\streetchaos\baseobject.h
+	<Common_SDL_Function.h>
 
-1681083195 source:d:\code\github\ltnc_uet\bigproject\streetchaos\background.cpp
+1681226008 source:d:\code\github\ltnc_uet\bigproject\streetchaos\background.cpp
 	<Background.h>
 
-1681083004 d:\code\github\ltnc_uet\bigproject\streetchaos\background.h
-	<Common_SDL_Func.h>
+1681225320 d:\code\github\ltnc_uet\bigproject\streetchaos\background.h
 	<BaseObject.h>
+
+1681225999 source:d:\code\github\ltnc_uet\bigproject\streetchaos\button.cpp
+	<Button.h>
+
+1681225457 d:\code\github\ltnc_uet\bigproject\streetchaos\button.h
+	<BaseObject.h>
+
+1681219606 source:d:\code\github\ltnc_uet\bigproject\streetchaos\character.cpp
+	<Character.h>
+
+1681224731 d:\code\github\ltnc_uet\bigproject\streetchaos\character.h
+	<BaseObject.h>
+
+1681224642 d:\code\github\ltnc_uet\bigproject\streetchaos\common_sdl_function.h
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_mixer.h>
+	<SDL_ttf.h>
+	<string>
+
+1681222310 source:d:\code\github\ltnc_uet\bigproject\streetchaos\common_sdl_function.cpp
+	<Common_SDL_Function.h>
+
+1681221375 d:\code\github\ltnc_uet\bigproject\streetchaos\main.cpp
+	<Common_SDL_Function.h>
+	<iostream>
 

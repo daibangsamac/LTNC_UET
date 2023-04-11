@@ -12,24 +12,24 @@ SDL_Renderer *gRenderer = NULL;
 bool loadMedia();
 bool Init();
 void close();
-SDL_Texture *loadTexture(std :: string path)
+SDL_Texture *loadTexture(std::string path)
 {
-    SDL_Texture *optimizedTexture = NULL;
-    SDL_Surface *loadedSurface = IMG_Load(path.c_str());
-    if (loadedSurface == NULL)
+    SDL_Texture *newTexture = NULL;
+    SDL_Surface *loadSurface = IMG_Load(path.c_str());
+    if (loadSurface == NULL)
     {
-        printf("Unable to load image %s\n",path.c_str());
+        printf( "Failed to load image %s\n",path.c_str());
     }
     else
     {
-        optimizedTexture = SDL_CreateTextureFromSurface(gRenderer,loadedSurface);
-        if (optimizedTexture == NULL)
+        newTexture = SDL_CreateTextureFromSurface(gRenderer,loadSurface);
+        if (newTexture == NULL)
         {
-            printf("Failed to convert image to texture\n");
+            printf("Failed to convert image to texture. Error: %s\n",SDL_GetError());
         }
-        SDL_FreeSurface(loadedSurface);
+        SDL_FreeSurface(loadSurface);
     }
-    return optimizedTexture;
+    return newTexture;
 }
 class object
 {
@@ -219,7 +219,7 @@ bool Init()
     }
     else
     {
-        gWindow = SDL_CreateWindow("Hangman",SDL_WINDOWPOS_UNDEFINED,SDL_WINDOWPOS_UNDEFINED,SCREEN_WIDTH,SCREEN_HEIGHT,SDL_WINDOW_RESIZABLE);
+        gWindow = SDL_CreateWindow("Hangman",SDL_WINDOWPOS_UNDEFINED,SDL_WINDOWPOS_UNDEFINED,SCREEN_WIDTH,SCREEN_HEIGHT,SDL_WINDOW_SHOWN);
         if (gWindow == NULL)
         {
             printf("Unable to create window\n");

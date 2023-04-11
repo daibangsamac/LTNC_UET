@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1681039918 source:d:\code\github\ltnc_uet\bigproject\hangman\main.cpp
+1681040274 source:d:\code\github\ltnc_uet\bigproject\hangman\main.cpp
 	<bits/stdc++.h>
 	<Game.h>
 	<cstdlib>
@@ -396,7 +396,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1681038155 d:\code\github\ltnc_uet\bigproject\hangman\game.h
+1681213996 d:\code\github\ltnc_uet\bigproject\hangman\game.h
 	<SDL.h>
 	<SDL_image.h>
 	<SDL_mixer.h>

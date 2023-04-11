@@ -1,8 +1,7 @@
-#ifndef BASEOBJECT_H_
-#define BASEOBJECT_H_
+#ifndef BaseObject_H_
+#define BaseObject_H_
 
-
-#include <Common_SDL_Func.h>
+#include <Common_SDL_Function.h>
 
 class BaseObject
 {
@@ -10,18 +9,19 @@ public:
     BaseObject();
     ~BaseObject();
 
-    bool loadImage(std :: string path);
-    void SetRect(int x,int y) {rect_.x = x;rect_.y = y;}
+    bool loadImage(std :: string path,SDL_Renderer *gRenderer);
+    void SetPosition(int x,int y) {rect_.x = x;rect_.y = y;}
+    void SetSize(int w,int h) {rect_.w = w,rect_.h = h;}
     SDL_Rect getRect() const {return rect_;}
+    void Render(SDL_Renderer *gRenderer);
 
 protected:
     SDL_Rect rect_;
+    bool object_Gravity = false;
     SDL_Texture *Texture_ = NULL;
 
 private:
 
 };
 
-
-
-#endif //BASEOBJECT_H_
+#endif //BaseObject_h_

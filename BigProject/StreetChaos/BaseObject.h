@@ -13,6 +13,7 @@ public:
     void SetPosition(int x,int y) {rect_.x = x;rect_.y = y;}
     void SetSize(int w,int h) {rect_.w = w,rect_.h = h;}
     SDL_Rect getRect() const {return rect_;}
+    SDL_Rect Hitbox();
     void Render(SDL_Renderer *gRenderer);
 
 protected:

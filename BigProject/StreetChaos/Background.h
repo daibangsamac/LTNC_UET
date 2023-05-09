@@ -7,6 +7,7 @@
 enum Image_Background
 {
     Image_Background_Menu,
+    Image_Background_ChoosingCharacter,
     Image_Background_Total
 };
 
@@ -14,6 +15,7 @@ enum Image_Background
 static std :: string Image_Background_Path[Image_Background_Total] =
 {
     "Image_Background_Menu",
+    "Image_Background_ChoosingCharacter"
 };
 
 

@@ -11,6 +11,7 @@ SDL_Texture *loadTextureFromPNG(std::string path,SDL_Renderer *gRenderer)
     }
     else
     {
+        SDL_SetColorKey( loadSurface, SDL_TRUE, SDL_MapRGB( loadSurface->format, 0xFF, 0xFF, 0xFF ) );
         newTexture = SDL_CreateTextureFromSurface(gRenderer,loadSurface);
         if (newTexture == NULL)
         {
@@ -26,6 +27,7 @@ SDL_Texture *loadTextureFromText(std::string textureText,SDL_Color textColor,TTF
 {
     SDL_Texture *TextTexture = NULL;
     SDL_Surface* textSurface = TTF_RenderText_Solid( gFont, textureText.c_str(), textColor );
+    if (textureText != "")
     if( textSurface == NULL )
     {
         printf( "Failed to render text surface!\n");

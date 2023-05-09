@@ -34,3 +34,8 @@ void BaseObject :: Render(SDL_Renderer *gRenderer)
     SDL_SetRenderDrawColor(gRenderer,0xFF,0xFF,0xFF,0xFF);
     SDL_RenderCopy(gRenderer,Texture_,NULL,NULL);
 }
+
+SDL_Rect BaseObject :: Hitbox()
+{
+    return rect_;
+}

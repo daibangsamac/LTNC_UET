@@ -1,4 +1,3 @@
-
 #include <Common_SDL_Function.h>
 #include <iostream>
 #include <Button.h>
@@ -34,7 +33,6 @@ void HandleOtherMovement(Background &TBackground,Threat &TEnemy1,Threat &TEnemy2
     SDL_Rect temp = TBackground.getRect();
     if (temp.y>=0) TBackground.SetPosition(temp.x,720-2000);
     else TBackground.SetPosition(temp.x,temp.y+3);
-
 
     if (dd[1]==0)
     {if (Cooldown[1]==0)
@@ -222,6 +220,12 @@ int main(int argc,char *argv[])
         Pause_Exit.SetSize(80,40);
         Pause_Exit.SetPosition(600,480);
         Pause_Exit.SetColor({177,235,52});
+        ///////////////////////////////////////
+        gMusic = Mix_LoadMUS("Amber.mp3");
+        if (gMusic== NULL)
+        {
+            printf("Failed to load music\n");
+        }
         bool quit = false;
         while (!quit)
         {
@@ -230,6 +234,9 @@ int main(int argc,char *argv[])
             {
                 SDL_Delay(10);
                 cout << "-";
+                if (Mix_PlayingMusic()==0)
+                Mix_PlayMusic(gMusic,-1);
+                if( Mix_PausedMusic() == 1 ) Mix_ResumeMusic();
                 while (SDL_PollEvent(&gEvent))
                 {
                 Player.HandleAction(gEvent);
@@ -255,6 +262,9 @@ int main(int argc,char *argv[])
             {
                 SDL_Delay(10);
                 cout << "-";
+                if (Mix_PlayingMusic()==0)
+                Mix_PlayMusic(gMusic,-1);
+                if( Mix_PausedMusic() == 1 ) Mix_ResumeMusic();
                 while (SDL_PollEvent(&gEvent))
                 {
                 Player.HandleAction(gEvent);
@@ -277,6 +287,7 @@ int main(int argc,char *argv[])
             {
                 SDL_Delay(10);
                 cout << "-";
+                Mix_PauseMusic();
                 while (SDL_PollEvent(&gEvent))
                 {
                 Player.HandleAction(gEvent);
@@ -302,6 +313,9 @@ int main(int argc,char *argv[])
             {
                 SDL_Delay(10);
                 cout << "-";
+                if (Mix_PlayingMusic()==0)
+                Mix_PlayMusic(gMusic,-1);
+                if( Mix_PausedMusic() == 1 ) Mix_ResumeMusic();
                 while (SDL_PollEvent(&gEvent))
                 {
                 if (gEvent.type == SDL_QUIT) {Session = QUIT;quit = true;}
